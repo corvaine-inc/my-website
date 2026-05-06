@@ -1,3 +1,5 @@
+export const runtime = 'edge'
+
 import { NextRequest, NextResponse } from 'next/server'
 import { sessionStore } from '@/lib/auth/session-store'
 import {

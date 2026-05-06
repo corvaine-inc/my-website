@@ -1,3 +1,5 @@
+export const runtime = 'edge'
+
 import { NextRequest, NextResponse } from 'next/server'
 import { publicRoute, adminRoute, type AuthContext } from '@/lib/auth'
 
