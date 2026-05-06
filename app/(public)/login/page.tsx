@@ -1,3 +1,4 @@
+export const runtime = 'edge'
 import { LoginForm } from './login-form'
 
 interface LoginPageProps {
