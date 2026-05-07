@@ -459,7 +459,7 @@ export default function CookiePolicyPage() {
                       <h2 className="font-serif text-2xl font-medium">Third-Party Cookies</h2>
                     </div>
                     <div className="space-y-4 text-muted-foreground">
-                      <p className="leading-relaxed">
+                      <p className="leading-relaxed break-words">
                         Some cookies on our website are placed by third-party services that 
                         appear on our pages. We do not control these cookies and recommend 
                         reviewing the privacy policies of these third parties:
@@ -469,14 +469,14 @@ export default function CookiePolicyPage() {
                           "Google Analytics - For website traffic analysis and insights",
                           "Payment processors - For secure transaction handling",
                         ].map((item, index) => (
-                          <li key={index} className="flex items-start gap-3">
+                          <li key={index} className="flex items-start gap-3 break-words">
                             <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                            {item}
+                            <span className="break-words">{item}</span>
                           </li>
                         ))}
                       </ul>
                       <div className="pt-4">
-                        <p className="leading-relaxed">
+                        <p className="leading-relaxed break-words">
                           For questions about our cookie practices, please{" "}
                           <Link href="/contact" className="text-primary hover:underline">
                             contact us
