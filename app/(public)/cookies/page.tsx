@@ -401,7 +401,7 @@ export default function CookiePolicyPage() {
                         You can manage your cookie preferences at any time using the panel above, 
                         or through your browser settings. Here are some ways to control cookies:
                       </p>
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid md:grid-cols-2 gap-4 w-full overflow-hidden">
                         {[
                           { 
                             title: "Browser Settings", 
@@ -426,10 +426,10 @@ export default function CookiePolicyPage() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.3, delay: index * 0.1 }}
-                            className="p-4 rounded-lg bg-muted/50 border border-border/50"
+                            className="p-4 rounded-lg bg-muted/50 border border-border/50 w-full min-w-0 break-words"
                           >
-                            <h4 className="font-medium text-foreground mb-1">{item.title}</h4>
-                            <p className="text-sm">{item.desc}</p>
+                            <h4 className="font-medium text-foreground mb-1 break-words">{item.title}</h4>
+                            <p className="text-sm break-words">{item.desc}</p>
                           </motion.div>
                         ))}
                       </div>
