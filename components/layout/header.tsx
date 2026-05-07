@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, LogOut, User, ShoppingBag } from "lucide-react"
@@ -21,6 +22,7 @@ import { useSession } from "@/hooks/use-session"
 export function Header() {
   const pathname = usePathname()
   const { role, isAuthenticated, isLoading, logout } = useSession()
+  const [open, setOpen] = useState(false)
   
   // Check if we're on the homepage with video hero
   const isHomepage = pathname === "/"
@@ -128,7 +130,7 @@ export function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden">
             <Button 
               variant="ghost" 
@@ -150,6 +152,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={() => setOpen(false)}
                   className={cn(
                     "text-lg font-medium transition-colors hover:text-primary py-2",
                     pathname === item.href
@@ -167,26 +170,26 @@ export function Header() {
                       <p className="font-medium capitalize">{role} Account</p>
                     </div>
                     {role === 'admin' && (
-                      <Button variant="outline" asChild className="w-full">
+                      <Button variant="outline" asChild className="w-full" onClick={() => setOpen(false)}>
                         <Link href="/admin">Admin Dashboard</Link>
                       </Button>
                     )}
                     {role === 'distributor' && (
-                      <Button variant="outline" asChild className="w-full">
+                      <Button variant="outline" asChild className="w-full" onClick={() => setOpen(false)}>
                         <Link href="/portal">Distributor Portal</Link>
                       </Button>
                     )}
-                    <Button variant="ghost" onClick={logout} className="w-full justify-start text-destructive">
+                    <Button variant="ghost" onClick={() => { logout(); setOpen(false); }} className="w-full justify-start text-destructive">
                       <LogOut className="mr-2 h-4 w-4" />
                       Sign out
                     </Button>
                   </>
                 ) : (
                   <>
-                    <Button variant="outline" asChild className="w-full">
+                    <Button variant="outline" asChild className="w-full" onClick={() => setOpen(false)}>
                       <Link href="/login">Sign in</Link>
                     </Button>
-                    <Button asChild className="w-full">
+                    <Button asChild className="w-full" onClick={() => setOpen(false)}>
                       <Link href="/register">Register</Link>
                     </Button>
                   </>
