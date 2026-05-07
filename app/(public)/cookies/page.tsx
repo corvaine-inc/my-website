@@ -110,7 +110,7 @@ export default function CookiePolicyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden w-full max-w-full">
+    <div className="min-h-screen bg-background w-full max-w-full">
       {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
@@ -207,18 +207,18 @@ export default function CookiePolicyPage() {
                       <h2 className="font-serif text-2xl font-medium">What Are Cookies?</h2>
                     </div>
                     <div className="space-y-4 text-muted-foreground">
-                      <p className="leading-relaxed">
+                      <p className="leading-relaxed break-words w-full">
                         Cookies are small text files that are placed on your computer or mobile 
                         device when you visit a website. They are widely used to make websites 
                         work more efficiently and to provide information to website owners.
                       </p>
-                      <p className="leading-relaxed">
+                      <p className="leading-relaxed break-words w-full">
                         Cookies help us recognize your device and remember your preferences, 
                         such as your login details or language settings. They also help us 
                         understand how you use our website so we can improve your experience.
                       </p>
-                      <div className="p-4 rounded-lg bg-muted/50 border border-border/50 mt-4">
-                        <p className="text-sm">
+                      <div className="p-4 rounded-lg bg-muted/50 border border-border/50 mt-4 w-full max-w-full break-words">
+                        <p className="text-sm break-words">
                           <strong className="text-foreground">Important:</strong> Cookies do not 
                           contain any personally identifiable information and cannot be used to 
                           identify you directly. They simply help our website remember your preferences.
@@ -272,23 +272,23 @@ export default function CookiePolicyPage() {
                                 </div>
                               </AccordionTrigger>
                               <AccordionContent>
-                                <div className="pl-10 space-y-4">
-                                  <p className="text-muted-foreground">{category.description}</p>
-                                  <div className="rounded-lg border border-border/50 overflow-hidden">
+                                <div className="pl-10 space-y-4 w-full max-w-full break-words">
+                                  <p className="text-muted-foreground break-words w-full">{category.description}</p>
+                                  <div className="rounded-lg border border-border/50 overflow-hidden w-full max-w-full">
                                     <table className="w-full text-sm">
                                       <thead className="bg-muted/50">
                                         <tr>
-                                          <th className="text-left p-3 font-medium text-foreground">Cookie</th>
-                                          <th className="text-left p-3 font-medium text-foreground">Purpose</th>
-                                          <th className="text-left p-3 font-medium text-foreground">Duration</th>
+                                          <th className="text-left p-3 font-medium text-foreground break-words">Cookie</th>
+                                          <th className="text-left p-3 font-medium text-foreground break-words">Purpose</th>
+                                          <th className="text-left p-3 font-medium text-foreground break-words">Duration</th>
                                         </tr>
                                       </thead>
                                       <tbody>
                                         {category.cookies.map((cookie, i) => (
                                           <tr key={i} className="border-t border-border/50">
-                                            <td className="p-3 text-muted-foreground font-mono text-xs">{cookie.name}</td>
-                                            <td className="p-3 text-muted-foreground">{cookie.purpose}</td>
-                                            <td className="p-3 text-muted-foreground">{cookie.duration}</td>
+                                            <td className="p-3 text-muted-foreground font-mono text-xs break-words">{cookie.name}</td>
+                                            <td className="p-3 text-muted-foreground break-words">{cookie.purpose}</td>
+                                            <td className="p-3 text-muted-foreground break-words">{cookie.duration}</td>
                                           </tr>
                                         ))}
                                       </tbody>
@@ -322,8 +322,8 @@ export default function CookiePolicyPage() {
                       <CardTitle className="font-serif text-2xl font-medium">Manage Cookie Preferences</CardTitle>
                     </div>
                   </CardHeader>
-                  <CardContent className="space-y-6">
-                    <p className="text-muted-foreground">
+                  <CardContent className="space-y-6 w-full max-w-full">
+                    <p className="text-muted-foreground break-words w-full">
                       Customize your cookie settings below. Essential cookies cannot be disabled 
                       as they are necessary for the website to function.
                     </p>
@@ -333,20 +333,20 @@ export default function CookiePolicyPage() {
                         <motion.div
                           key={category.id}
                           whileHover={{ scale: 1.01 }}
-                          className="flex items-center justify-between p-4 rounded-lg bg-card border border-border/50"
+                          className="flex items-center justify-between p-4 rounded-lg bg-card border border-border/50 w-full max-w-full break-words"
                         >
-                          <div className="flex items-center gap-3">
-                            <div className="p-2 rounded-lg bg-muted">
+                          <div className="flex items-center gap-3 w-full min-w-0">
+                            <div className="p-2 rounded-lg bg-muted flex-shrink-0">
                               <category.icon className="w-4 h-4 text-accent" />
                             </div>
-                            <div>
+                            <div className="w-full min-w-0 break-words">
                               <Label 
                                 htmlFor={category.id} 
-                                className="font-medium text-foreground cursor-pointer"
+                                className="font-medium text-foreground cursor-pointer break-words"
                               >
                                 {category.title}
                               </Label>
-                              <p className="text-sm text-muted-foreground mt-0.5">
+                              <p className="text-sm text-muted-foreground mt-0.5 break-words w-full">
                                 {category.description}
                               </p>
                             </div>
@@ -396,8 +396,8 @@ export default function CookiePolicyPage() {
                       </div>
                       <h2 className="font-serif text-2xl font-medium">Managing Your Consent</h2>
                     </div>
-                    <div className="space-y-4 text-muted-foreground">
-                      <p className="leading-relaxed">
+                    <div className="space-y-4 text-muted-foreground w-full max-w-full">
+                      <p className="leading-relaxed break-words w-full">
                         You can manage your cookie preferences at any time using the panel above, 
                         or through your browser settings. Here are some ways to control cookies:
                       </p>
@@ -433,7 +433,7 @@ export default function CookiePolicyPage() {
                           </motion.div>
                         ))}
                       </div>
-                      <p className="leading-relaxed pt-2">
+                      <p className="leading-relaxed pt-2 break-words w-full">
                         Please note that disabling certain cookies may affect the functionality 
                         of our website and your experience as a user.
                       </p>
@@ -458,25 +458,25 @@ export default function CookiePolicyPage() {
                       </div>
                       <h2 className="font-serif text-2xl font-medium">Third-Party Cookies</h2>
                     </div>
-                    <div className="space-y-4 text-muted-foreground">
-                      <p className="leading-relaxed break-words">
+                    <div className="space-y-4 text-muted-foreground w-full max-w-full break-words">
+                      <p className="leading-relaxed break-words w-full">
                         Some cookies on our website are placed by third-party services that 
                         appear on our pages. We do not control these cookies and recommend 
                         reviewing the privacy policies of these third parties:
                       </p>
-                      <ul className="space-y-3">
+                      <ul className="space-y-3 w-full max-w-full">
                         {[
                           "Google Analytics - For website traffic analysis and insights",
                           "Payment processors - For secure transaction handling",
                         ].map((item, index) => (
-                          <li key={index} className="flex items-start gap-3 break-words">
+                          <li key={index} className="flex items-start gap-3 break-words w-full min-w-0">
                             <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                            <span className="break-words">{item}</span>
+                            <span className="break-words w-full min-w-0">{item}</span>
                           </li>
                         ))}
                       </ul>
-                      <div className="pt-4">
-                        <p className="leading-relaxed break-words">
+                      <div className="pt-4 w-full max-w-full break-words">
+                        <p className="leading-relaxed break-words w-full">
                           For questions about our cookie practices, please{" "}
                           <Link href="/contact" className="text-primary hover:underline">
                             contact us
