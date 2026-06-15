@@ -274,25 +274,14 @@ export default function CookiePolicyPage() {
                               <AccordionContent>
                                 <div className="pl-10 space-y-4 w-full max-w-full break-words">
                                   <p className="text-muted-foreground break-words w-full">{category.description}</p>
-                                  <div className="rounded-lg border border-border/50 overflow-x-auto w-full max-w-full">
-                                    <table className="w-full text-sm">
-                                      <thead className="bg-muted/50">
-                                        <tr>
-                                          <th className="text-left p-3 font-medium text-foreground break-words">Cookie</th>
-                                          <th className="text-left p-3 font-medium text-foreground break-words">Purpose</th>
-                                          <th className="text-left p-3 font-medium text-foreground break-words">Duration</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        {category.cookies.map((cookie, i) => (
-                                          <tr key={i} className="border-t border-border/50">
-                                            <td className="p-3 text-muted-foreground font-mono text-xs break-words">{cookie.name}</td>
-                                            <td className="p-3 text-muted-foreground break-words">{cookie.purpose}</td>
-                                            <td className="p-3 text-muted-foreground break-words">{cookie.duration}</td>
-                                          </tr>
-                                        ))}
-                                      </tbody>
-                                    </table>
+                                  <div className="space-y-3 w-full">
+                                    {category.cookies.map((cookie, i) => (
+                                      <div key={i} className="p-3 rounded-lg bg-muted/30 border border-border/50 space-y-1">
+                                        <p className="font-mono text-xs text-accent font-medium">{cookie.name}</p>
+                                        <p className="text-sm text-muted-foreground">{cookie.purpose}</p>
+                                        <p className="text-xs text-muted-foreground">Duration: {cookie.duration}</p>
+                                      </div>
+                                    ))}
                                   </div>
                                 </div>
                               </AccordionContent>
