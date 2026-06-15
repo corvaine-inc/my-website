@@ -110,7 +110,7 @@ export default function CookiePolicyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background w-full max-w-full">
+    <div className="min-h-screen bg-background w-full max-w-full overflow-x-hidden">
       {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
@@ -199,7 +199,7 @@ export default function CookiePolicyPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Card className="border-border/50 bg-card/50 backdrop-blur">
-                  <CardContent className="p-8">
+                  <CardContent className="p-4 md:p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="p-2 rounded-lg bg-accent/10">
                         <Cookie className="w-5 h-5 text-accent" />
@@ -238,7 +238,7 @@ export default function CookiePolicyPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Card className="border-border/50 bg-card/50 backdrop-blur">
-                  <CardContent className="p-8">
+                  <CardContent className="p-4 md:p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="p-2 rounded-lg bg-accent/10">
                         <Settings className="w-5 h-5 text-accent" />
@@ -274,7 +274,7 @@ export default function CookiePolicyPage() {
                               <AccordionContent>
                                 <div className="pl-10 space-y-4 w-full max-w-full break-words">
                                   <p className="text-muted-foreground break-words w-full">{category.description}</p>
-                                  <div className="rounded-lg border border-border/50 overflow-hidden w-full max-w-full">
+                                  <div className="rounded-lg border border-border/50 overflow-x-auto w-full max-w-full">
                                     <table className="w-full text-sm">
                                       <thead className="bg-muted/50">
                                         <tr>
@@ -389,7 +389,7 @@ export default function CookiePolicyPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Card className="border-border/50 bg-card/50 backdrop-blur">
-                  <CardContent className="p-8">
+                  <CardContent className="p-4 md:p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="p-2 rounded-lg bg-accent/10">
                         <Cog className="w-5 h-5 text-accent" />
@@ -451,7 +451,7 @@ export default function CookiePolicyPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Card className="border-border/50 bg-card/50 backdrop-blur">
-                  <CardContent className="p-8">
+                  <CardContent className="p-4 md:p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="p-2 rounded-lg bg-accent/10">
                         <Globe className="w-5 h-5 text-accent" />
