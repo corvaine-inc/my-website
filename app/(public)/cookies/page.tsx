@@ -189,7 +189,7 @@ export default function CookiePolicyPage() {
             </motion.aside>
 
             {/* Content */}
-            <div className="space-y-16">
+            <div className="space-y-16 min-w-0">
               {/* What Are Cookies */}
               <motion.div
                 id="what-are-cookies"
@@ -274,7 +274,7 @@ export default function CookiePolicyPage() {
                               <AccordionContent>
                                 <div className="pl-10 space-y-4">
                                   <p className="text-muted-foreground">{category.description}</p>
-                                  <div className="rounded-lg border border-border/50 overflow-hidden">
+                                  <div className="rounded-lg border border-border/50 overflow-x-auto">
                                     <table className="w-full text-sm">
                                       <thead className="bg-muted/50">
                                         <tr>
