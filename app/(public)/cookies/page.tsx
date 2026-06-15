@@ -157,7 +157,7 @@ export default function CookiePolicyPage() {
       {/* Main Content */}
       <section className="py-12 md:py-20">
         <div className="container">
-          <div className="grid lg:grid-cols-[280px_1fr] gap-12">
+          <div className="grid lg:grid-cols-[280px_1fr] gap-12 w-full min-w-0">
             {/* Sticky Navigation */}
             <motion.aside
               initial={{ opacity: 0, x: -20 }}
@@ -189,7 +189,7 @@ export default function CookiePolicyPage() {
             </motion.aside>
 
             {/* Content */}
-            <div className="space-y-16">
+            <div className="space-y-16 w-full min-w-0 overflow-hidden">
               {/* What Are Cookies */}
               <motion.div
                 id="what-are-cookies"
