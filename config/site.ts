@@ -3,7 +3,7 @@ export const siteConfig = {
   companyName: "CORVAINE",
   tagline: "Premium Hardwood Charcoal",
   description: "BLAZEHAZE by CORVAINE - Premium hardwood charcoal for the ultimate grilling experience. Long-lasting burn, intense heat, pure flavor.",
-  url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://corvaine.ca",
   links: {
     twitter: "https://twitter.com/corvaine",
     instagram: "https://instagram.com/blazehaze",
