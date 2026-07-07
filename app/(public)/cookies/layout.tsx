@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Cookie Policy",
+  description: "Learn how CORVAINE uses cookies to improve your browsing experience on our website.",
+}
+
 export default function CookiesLayout({
   children,
 }: {
