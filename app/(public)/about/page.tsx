@@ -3,6 +3,11 @@ import { Building2, Users, Globe, Award } from "lucide-react"
 
 import { Card, CardContent } from "@/components/ui/card"
 
+export const metadata = {
+  title: "About",
+  description: "Learn about CORVAINE, the makers of BLAZEHAZE premium hardwood charcoal trusted by restaurants and pitmasters.",
+}
+
 export const metadata: Metadata = {
   title: "About Us",
   description: "Learn about our company, mission, and values",
