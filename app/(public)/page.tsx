@@ -8,6 +8,10 @@ import { VideoHero } from "@/components/home/video-hero"
 import { BackToTop } from "@/components/shared/back-to-top"
 import { siteConfig } from "@/config/site"
 
+export const metadata = {
+  description: "BLAZEHAZE by CORVAINE - Premium hardwood charcoal for the ultimate grilling experience. Long-lasting burn, intense heat, pure flavor.",
+}
+
 const features = [
   {
     icon: Flame,
