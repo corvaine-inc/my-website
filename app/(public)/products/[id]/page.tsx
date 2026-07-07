@@ -10,7 +10,7 @@ import { ArrowLeft, Check, Package, Clock, ThermometerSun, Flame, ArrowRight, Sp
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
-const products: Record<string, {
+export const products: Record<string, {
   id: string
   name: string
   weight: string
