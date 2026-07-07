@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { products } from './page'
 
+export function generateStaticParams() {
+  return Object.keys(products).map((id) => ({ id }))
+}
+
 export async function generateMetadata({
   params,
 }: {
