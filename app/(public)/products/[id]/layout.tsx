@@ -3,6 +3,12 @@ export const runtime = 'edge'
 import type { Metadata } from 'next'
 import { products } from './products-data'
 
+function formatWeight(weight: string): string {
+  // Converts "8kg" -> "8 Kg." and "3.5kg" -> "3.5 Kg."
+  const match = weight.match(/^([\d.]+)kg$/i)
+  return match ? `${match[1]} Kg.` : weight
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -18,7 +24,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${product.name} ${product.weight}`,
+    title: `${product.name} ${formatWeight(product.weight)} Charcoal`,
     description: product.longDescription,
   }
 }
