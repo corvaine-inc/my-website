@@ -4,7 +4,6 @@ import type { Metadata } from 'next'
 import { products } from './products-data'
 
 function formatWeight(weight: string): string {
-  // Converts "8kg" -> "8 Kg." and "3.5kg" -> "3.5 Kg."
   const match = weight.match(/^([\d.]+)kg$/i)
   return match ? `${match[1]} Kg.` : weight
 }
@@ -29,10 +28,38 @@ export async function generateMetadata({
   }
 }
 
-export default function ProductLayout({
+export default async function ProductLayout({
   children,
+  params,
 }: {
   children: React.ReactNode
+  params: Promise<{ id: string }>
 }) {
-  return children
+  const { id } = await params
+  const product = products[id]
+
+  return (
+    <>
+      {product && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              "name": `${formatWeight(product.weight)} ${product.name} Lump Hardwood Charcoal`,
+              "description": product.longDescription,
+              "brand": {
+                "@type": "Brand",
+                "name": "BLAZEHAZE",
+              },
+              "image": `https://corvaine.ca${product.image}`,
+              "sku": product.id,
+            }),
+          }}
+        />
+      )}
+      {children}
+    </>
+  )
 }
