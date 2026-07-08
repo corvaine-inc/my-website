@@ -25,7 +25,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     default: `${siteConfig.name} by ${siteConfig.companyName} | ${siteConfig.tagline}`,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s | ${siteConfig.companyName}`,
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
