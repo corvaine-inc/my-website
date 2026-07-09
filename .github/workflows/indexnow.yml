@@ -1,0 +1,57 @@
+name: Ping IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify IndexNow of updated pages
+        run: |
+          python3 - <<'EOF'
+          import urllib.request
+          import re
+          import json
+
+          KEY = "a7f3c9e12b4d4681a9f2e8c1d5b6f403"
+          HOST = "corvaine.ca"
+          SITEMAP_URL = f"https://{HOST}/sitemap.xml"
+
+          try:
+              with urllib.request.urlopen(SITEMAP_URL, timeout=15) as resp:
+                  xml = resp.read().decode("utf-8")
+              urls = re.findall(r"<loc>(.*?)</loc>", xml)
+          except Exception as e:
+              print("Could not fetch sitemap, falling back to homepage only:", e)
+              urls = [f"https://{HOST}/"]
+
+          if not urls:
+              urls = [f"https://{HOST}/"]
+
+          payload = {
+              "host": HOST,
+              "key": KEY,
+              "keyLocation": f"https://{HOST}/{KEY}.txt",
+              "urlList": urls
+          }
+
+          req = urllib.request.Request(
+              "https://api.indexnow.org/indexnow",
+              data=json.dumps(payload).encode("utf-8"),
+              headers={"Content-Type": "application/json; charset=utf-8"},
+              method="POST"
+          )
+
+          try:
+              with urllib.request.urlopen(req, timeout=15) as resp:
+                  print("IndexNow response code:", resp.status)
+          except urllib.error.HTTPError as e:
+              print("IndexNow response code:", e.code)
+
+          print(f"Submitted {len(urls)} URL(s):")
+          for u in urls:
+              print(" -", u)
+          EOF
