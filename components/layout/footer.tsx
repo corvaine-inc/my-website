@@ -44,7 +44,7 @@ export function Footer() {
           {/* Bottom bar with copyright and portal links */}
           <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-border/50">
             <p className="text-sm text-muted-foreground">
-              BLAZEHAZE. All rights reserved.
+              CORVAINE. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link
