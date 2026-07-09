@@ -1,9 +1,10 @@
 import type { MetadataRoute } from 'next'
+import { products } from './(public)/products/[id]/products-data'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://corvaine.ca'
 
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -14,15 +15,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/products/blazehaze-8kg`,
-      lastModified: new Date(),
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/products/blazehaze-3kg`,
-      lastModified: new Date(),
-      priority: 0.6,
-    },
   ]
+
+  const productPages: MetadataRoute.Sitemap = Object.keys(products).map((id) => ({
+    url: `${baseUrl}/products/${id}`,
+    lastModified: new Date(),
+    priority: 0.6,
+  }))
+
+  return [...staticPages, ...productPages]
 }
